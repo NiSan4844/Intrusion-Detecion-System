@@ -37,6 +37,8 @@ alert icmp any any -> any any (msg:"ICMP Ping Request Detected"; itype:8; sid:10
 
 ---
 
+![ICMP PIng ](https://github.com/user-attachments/assets/27035d23-6ab0-4835-9792-a18cc407e684)
+
 ### 2. Port Scan Alert
 
 -**Rule**:
@@ -54,6 +56,8 @@ alert tcp any any -> any any (msg:"Possible Port Scan Detected"; flags:S; thresh
 
 ---
 
+![Port scan](https://github.com/user-attachments/assets/8070d08b-b1d4-4525-b5e9-bfb5627f57d3)
+
 ### 3. Brute Force SSH Login Alert
 
   ```plaintext
@@ -69,6 +73,8 @@ alert tcp any any -> any 22 (msg:"SSH Brute Force Attempt"; flow:established,to_
 
 ---
 
+![Brute force ssh](https://github.com/user-attachments/assets/b4e67e6f-2ae8-4407-a35f-e5d6c58f9e47)
+
 ### 4. HTTP GET Flood (DDoS)
 
   ```plaintext
@@ -82,6 +88,8 @@ alert http any any -> any any (msg:"HTTP GET Flood Detected"; threshold:type thr
 - **Alert Trigger**: 
   This rule is triggered when a single source IP sends 100 or more HTTP GET requests within a one-second window. The use of threshold and track by_src allows for detection of rapid request bursts that indicate potential DDoS activity. The content:"GET" condition specifies that the alert is looking specifically for HTTP GET requests.
 ---
+
+![HTTP GET flood](https://github.com/user-attachments/assets/a04e3e58-9a9b-49f7-8a77-3fe040712b70)
 
 ### 5. Malicious File Download Alert
 
@@ -98,7 +106,13 @@ alert http any any -> any any (msg:"Potential Malicious File Download"; flow:to_
 
 ---
 
+![Malicious file download from attacker ip](https://github.com/user-attachments/assets/1ea614ef-9178-42d6-91b0-5c68ea0983f4)
+
+
+![malicious file downlaod](https://github.com/user-attachments/assets/92006fea-fd38-42d7-b6c1-edcb89d5cbc1)
+
 ### 6. C2 Communication Alert
+
 
   ```plaintext
 alert tcp any any -> 10.0.2.4 9999 (msg:"C2 Communication Detected"; flow:established; classtype:trojan-activity; sid:1000007; rev:1;)
@@ -113,9 +127,15 @@ alert tcp any any -> 10.0.2.4 9999 (msg:"C2 Communication Detected"; flow:establ
 
 ---
 
+![c2_server_comm](https://github.com/user-attachments/assets/5682c466-1258-41a5-8267-305bf7f086b6)
+
+![c2_comm_detected](https://github.com/user-attachments/assets/ead5d28c-3f2d-4474-88c5-fbd899cf0915)
+
 ## Conclusion
 
 The above alerts are essential for monitoring and protecting network environments against various types of attacks. By implementing these alerts, security teams can enhance their ability to detect and respond to potential threats effectively. Regularly reviewing and updating detection criteria is crucial for maintaining security posture in the ever-evolving threat landscape.
+
+![Rules](https://github.com/user-attachments/assets/c7f0c9f3-5d89-4f5d-b14c-faf4e14372f3)
 
 ## Additional Recommendations
 

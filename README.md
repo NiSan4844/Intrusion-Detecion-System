@@ -56,6 +56,8 @@ alert tcp any any -> any any (msg:"Possible Port Scan Detected"; flags:S; thresh
 
 ---
 
+![port scan](https://github.com/user-attachments/assets/4b0654a4-3bc6-4792-a690-ce3e6a9edebe)
+
 ![Port scan](https://github.com/user-attachments/assets/8070d08b-b1d4-4525-b5e9-bfb5627f57d3)
 
 ### 3. Brute Force SSH Login Alert
@@ -73,6 +75,8 @@ alert tcp any any -> any 22 (msg:"SSH Brute Force Attempt"; flow:established,to_
 
 ---
 
+![bruteforce ssh login](https://github.com/user-attachments/assets/b6aa6b7a-7f3e-4fda-a04e-7f37cfaf4379)
+
 ![Brute force ssh](https://github.com/user-attachments/assets/b4e67e6f-2ae8-4407-a35f-e5d6c58f9e47)
 
 ### 4. HTTP GET Flood (DDoS)
@@ -88,6 +92,8 @@ alert http any any -> any any (msg:"HTTP GET Flood Detected"; threshold:type thr
 - **Alert Trigger**: 
   This rule is triggered when a single source IP sends 100 or more HTTP GET requests within a one-second window. The use of threshold and track by_src allows for detection of rapid request bursts that indicate potential DDoS activity. The content:"GET" condition specifies that the alert is looking specifically for HTTP GET requests.
 ---
+
+![HTTP GET flood](https://github.com/user-attachments/assets/2085bb77-ec99-49cd-93f8-f150a9340135)
 
 ![HTTP GET flood](https://github.com/user-attachments/assets/a04e3e58-9a9b-49f7-8a77-3fe040712b70)
 
@@ -126,6 +132,8 @@ alert tcp any any -> 10.0.2.4 9999 (msg:"C2 Communication Detected"; flow:establ
   This rule triggers when any TCP traffic is detected directed to the specific IP address (10.0.2.4) on port 9999. The flow:established condition ensures that the alert only triggers for established connections, indicating that a compromised host is actively communicating with a potentially malicious server. This behavior is characteristic of C2 communication and may require immediate investigation.
 
 ---
+
+![c2_server comm](https://github.com/user-attachments/assets/0c3502cc-ea0e-46e2-9c35-8714734768be)
 
 ![c2_server_comm](https://github.com/user-attachments/assets/5682c466-1258-41a5-8267-305bf7f086b6)
 
